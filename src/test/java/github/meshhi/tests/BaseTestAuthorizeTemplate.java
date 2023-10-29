@@ -5,6 +5,7 @@ import org.junit.Before;
 
 import github.meshhi.pages.LoginPage;
 import github.meshhi.webdriver.BaseDriver;
+import github.meshhi.utils.ConfProperties;
 
 public class BaseTestAuthorizeTemplate {
     public BaseDriver driver;
@@ -21,7 +22,7 @@ public class BaseTestAuthorizeTemplate {
     }
 
     public void authorize() throws InterruptedException {
-        driver.goToURL("https://www.saucedemo.com/");
+        driver.goToURL(ConfProperties.getProperty("loginpage"));
         LoginPage loginPage = new LoginPage(driver);
         loginPage.authorize();
     }
